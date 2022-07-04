@@ -4,8 +4,8 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<AssemblyName>MailoPost</AssemblyName>
-		<RootNamespace>MailoPost</RootNamespace>
+		<AssemblyName>Tenogy.MailoPost.Client</AssemblyName>
+		<RootNamespace>Tenogy.MailoPost.Client</RootNamespace>
 	</PropertyGroup>
 
 </Project>
