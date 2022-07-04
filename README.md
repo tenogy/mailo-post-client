@@ -1,1 +1,1 @@
-# mailo-post-client
+# MailoPost.Client
