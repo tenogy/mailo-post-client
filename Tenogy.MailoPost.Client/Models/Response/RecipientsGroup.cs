@@ -1,41 +1,34 @@
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.Json.Serialization;
 
-namespace MailoPost.Models.Response
+namespace MailoPost.Models.Response;
+
+public sealed class GetRecipientsGroupsResponse : BaseCollectionResponse<RecipientsGroupModel>;
+
+public sealed class GetRecipientsGroupByIdResponse : RecipientsGroupModel, IBaseResponse
 {
-	public class GetRecipientsGroupsResponse : BaseCollectionResponse<RecipientsGroupModel>
-	{
-	}
+	[JsonIgnore]
+	public bool Success => Errors?.Any() != true;
 
-	public class GetRecipientsGroupByIdResponse : RecipientsGroupModel, IBaseResponse
-	{
-		[JsonIgnore]
-		public bool Success => Errors?.Any() != true;
-
-		[JsonPropertyName("errors")]
-		public IEnumerable<ErrorOfResponse>? Errors { get; set; }
-	}
-
-	public class CreateRecipientsGroupResponse : RecipientsGroupModel, IBaseResponse
-	{
-		[JsonIgnore]
-		public bool Success => Errors?.Any() != true;
-
-		[JsonPropertyName("errors")]
-		public IEnumerable<ErrorOfResponse>? Errors { get; set; }
-	}
-
-	public class EditRecipientsGroupResponse : RecipientsGroupModel, IBaseResponse
-	{
-		[JsonIgnore]
-		public bool Success => Errors?.Any() != true;
-
-		[JsonPropertyName("errors")]
-		public IEnumerable<ErrorOfResponse>? Errors { get; set; }
-	}
-
-	public class RemoveRecipientsGroupResponse : BaseResponse
-	{
-	}
+	[JsonPropertyName("errors")]
+	public IEnumerable<ErrorOfResponse>? Errors { get; set; }
 }
+
+public sealed class CreateRecipientsGroupResponse : RecipientsGroupModel, IBaseResponse
+{
+	[JsonIgnore]
+	public bool Success => Errors?.Any() != true;
+
+	[JsonPropertyName("errors")]
+	public IEnumerable<ErrorOfResponse>? Errors { get; set; }
+}
+
+public sealed class EditRecipientsGroupResponse : RecipientsGroupModel, IBaseResponse
+{
+	[JsonIgnore]
+	public bool Success => Errors?.Any() != true;
+
+	[JsonPropertyName("errors")]
+	public IEnumerable<ErrorOfResponse>? Errors { get; set; }
+}
+
+public sealed class RemoveRecipientsGroupResponse : BaseResponse;

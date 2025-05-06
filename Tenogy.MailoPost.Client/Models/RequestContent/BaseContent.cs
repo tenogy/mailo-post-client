@@ -1,6 +1,3 @@
-namespace MailoPost.Models.RequestContent
-{
-	public class BaseContent : IBaseContent
-	{
-	}
-}
+namespace MailoPost.Models.RequestContent;
+
+public abstract class BaseContent : IBaseContent;

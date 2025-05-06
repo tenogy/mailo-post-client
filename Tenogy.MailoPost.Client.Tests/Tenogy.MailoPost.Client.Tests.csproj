@@ -2,13 +2,11 @@
 
 	<PropertyGroup>
 		<TargetFramework>net9.0</TargetFramework>
+		<LangVersion>13</LangVersion>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>disable</Nullable>
-
+		<Nullable>enable</Nullable>
 		<IsPackable>false</IsPackable>
-
 		<AssemblyName>MailoPost.Tests</AssemblyName>
-
 		<RootNamespace>MailoPost.Tests</RootNamespace>
 	</PropertyGroup>
 
@@ -20,7 +18,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Tenogy.MailoPost.Client\Tenogy.MailoPost.Client.csproj" />
+		<ProjectReference Include="..\Tenogy.MailoPost.Client\Tenogy.MailoPost.Client.csproj" />
 	</ItemGroup>
 
 </Project>

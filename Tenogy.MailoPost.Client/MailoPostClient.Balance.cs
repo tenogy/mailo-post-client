@@ -1,14 +1,9 @@
-using System.Net.Http;
-using System.Threading.Tasks;
 using MailoPost.Models.Response;
 
-namespace MailoPost
+namespace MailoPost;
+
+public partial class MailoPostClient
 {
-	public partial class MailoPostClient
-	{
-		public async Task<GetBalanceResponse?> GetBalance()
-		{
-			return await SendRequest<GetBalanceResponse>(HttpMethod.Get, "/email/balance");
-		}
-	}
+	public async Task<GetBalanceResponse?> GetBalance()
+		=> await SendRequest<GetBalanceResponse>(HttpMethod.Get, method: "/email/balance");
 }

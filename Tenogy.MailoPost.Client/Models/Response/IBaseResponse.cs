@@ -1,10 +1,7 @@
-using System.Collections.Generic;
+namespace MailoPost.Models.Response;
 
-namespace MailoPost.Models.Response
+public interface IBaseResponse
 {
-	public interface IBaseResponse
-	{
-		bool Success { get; }
-		IEnumerable<ErrorOfResponse>? Errors { get; set; }
-	}
+	bool Success { get; }
+	IEnumerable<ErrorOfResponse>? Errors { get; set; }
 }

@@ -1,59 +1,59 @@
-using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace MailoPost.Models.RequestContent
+namespace MailoPost.Models.RequestContent;
+
+public sealed class GetRecipientsRequestContent : BaseCollectionContent
 {
-	public class GetRecipientsRequestContent : BaseCollectionContent
-	{
-		[JsonIgnore]
-		public int GroupId { get; set; }
-	}
+	[JsonIgnore]
+	public long GroupId { get; set; }
+}
 
-	public class SearchRecipientRequestContent : BaseCollectionContent
-	{
-		[JsonPropertyName("email")]
-		public string? Email { get; set; }
-	}
+public sealed class SearchRecipientRequestContent : BaseCollectionContent
+{
+	[JsonPropertyName("email")]
+	public string? Email { get; set; }
+}
 
-	public class CreateRecipientRequestContent : BaseContent
-	{
-		[JsonIgnore]
-		public int GroupId { get; set; }
+public abstract class BaseRecipientRequestContent : BaseContent
+{
+	[JsonIgnore]
+	public long GroupId { get; set; }
 
-		[JsonPropertyName("email")]
-		public string? Email { get; set; }
+	[JsonPropertyName("email")]
+	public string? Email { get; set; }
 
-		[JsonPropertyName("unconfirmed")]
-		public bool? Unconfirmed { get; set; }
+	[JsonPropertyName("unconfirmed")]
+	public bool? Unconfirmed { get; set; }
 
-		[JsonPropertyName("values")]
-		public IEnumerable<SimpleRecipientParameterModel>? Parameters { get; set; }
-	}
+	[JsonPropertyName("values")]
+	public IEnumerable<SimpleRecipientParameterModel>? Parameters { get; set; }
+}
 
-	public class ImportRecipientsRequestContent : BaseContent
-	{
-		[JsonIgnore]
-		public int GroupId { get; set; }
+public sealed class CreateRecipientRequestContent : BaseRecipientRequestContent;
 
-		[JsonPropertyName("recipients")]
-		public IEnumerable<SimpleRecipientModel>? Recipients { get; set; }
+public sealed class ImportRecipientsRequestContent : BaseContent
+{
+	[JsonIgnore]
+	public long GroupId { get; set; }
 
-		[JsonPropertyName("run_triggers")]
-		public bool RunTriggers { get; set; }
-	}
+	[JsonPropertyName("recipients")]
+	public IEnumerable<SimpleRecipientModel>? Recipients { get; set; }
 
-	public class EditRecipientRequestContent : CreateRecipientRequestContent
-	{
-		[JsonIgnore]
-		public int Id { get; set; }
-	}
+	[JsonPropertyName("run_triggers")]
+	public bool RunTriggers { get; set; }
+}
 
-	public class RemoveRecipientRequestContent : BaseContent
-	{
-		[JsonIgnore]
-		public int GroupId { get; set; }
+public sealed class EditRecipientRequestContent : BaseRecipientRequestContent
+{
+	[JsonIgnore]
+	public long Id { get; set; }
+}
 
-		[JsonIgnore]
-		public int Id { get; set; }
-	}
+public sealed class RemoveRecipientRequestContent : BaseContent
+{
+	[JsonIgnore]
+	public long GroupId { get; set; }
+
+	[JsonIgnore]
+	public long Id { get; set; }
 }

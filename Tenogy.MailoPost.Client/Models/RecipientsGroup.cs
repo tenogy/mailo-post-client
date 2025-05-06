@@ -1,13 +1,12 @@
 using System.Text.Json.Serialization;
 
-namespace MailoPost.Models
-{
-	public class RecipientsGroupModel
-	{
-		[JsonPropertyName("id")]
-		public int Id { get; set; }
+namespace MailoPost.Models;
 
-		[JsonPropertyName("title")]
-		public string? Title { get; set; }
-	}
+public class RecipientsGroupModel
+{
+	[JsonPropertyName("id")]
+	public long Id { get; set; }
+
+	[JsonPropertyName("title")]
+	public string? Title { get; set; }
 }

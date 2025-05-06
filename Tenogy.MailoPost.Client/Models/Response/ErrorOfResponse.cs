@@ -1,13 +1,12 @@
 using System.Text.Json.Serialization;
 
-namespace MailoPost.Models.Response
-{
-	public class ErrorOfResponse
-	{
-		[JsonPropertyName("code")]
-		public int Code { get; set; }
+namespace MailoPost.Models.Response;
 
-		[JsonPropertyName("detail")]
-		public string? Detail { get; set; }
-	}
+public sealed class ErrorOfResponse
+{
+	[JsonPropertyName("code")]
+	public int Code { get; set; }
+
+	[JsonPropertyName("detail")]
+	public string? Detail { get; set; }
 }
